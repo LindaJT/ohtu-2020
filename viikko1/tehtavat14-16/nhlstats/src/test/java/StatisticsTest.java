@@ -63,7 +63,7 @@ public class StatisticsTest {
     
     @Test
     public void correctAmountofTopScorers() {
-        List<Player> topScorers = stats.topScorers(2);
+        List<Player> topScorers = stats.topScorers(3);
         assertEquals(3, topScorers.size());
     }
     
