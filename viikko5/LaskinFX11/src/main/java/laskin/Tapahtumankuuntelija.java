@@ -15,11 +15,11 @@ public class Tapahtumankuuntelija implements EventHandler {
 
     public Tapahtumankuuntelija(TextField tuloskentta, TextField syotekentta, Button plus, Button miinus, Button nollaa, Button undo) {
         this.komennot = new HashMap<>();
+        this.undo = undo;
+        this.sovellus = new Sovelluslogiikka();
         this.komennot.put(plus, new Summa (tuloskentta, syotekentta, nollaa, undo, sovellus));
         this.komennot.put(miinus, new Erotus(tuloskentta, syotekentta, nollaa, undo, sovellus) );
         this.komennot.put(nollaa, new Nollaa(tuloskentta, syotekentta,  nollaa, undo, sovellus) );
-        this.undo = undo;
-        this.sovellus = new Sovelluslogiikka();
     }
     
     @Override

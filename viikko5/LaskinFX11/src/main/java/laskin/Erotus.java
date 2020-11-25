@@ -20,12 +20,22 @@ public class Erotus extends Komento {
 
     @Override
     public void suorita() {
-        sovellus.miinus(Integer.parseInt(syotekentta.getText()));
+        this.arvo = 0;
+        try {
+            this.arvo = Integer.parseInt(this.syotekentta.getText());
+        } catch (Exception e) {
+            
+        }
+        this.sovellus.miinus(this.arvo);
+        int laskunTulos = this.sovellus.tulos();
+        this.syotekentta.setText("");
+        this.tuloskentta.setText("" + laskunTulos);
     }
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int uusi = Integer.parseInt(this.tuloskentta.getText()) + this.arvo;
+        this.tuloskentta.setText("" + uusi);
     }
     
 }

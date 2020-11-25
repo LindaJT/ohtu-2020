@@ -20,12 +20,21 @@ public class Nollaa extends Komento {
 
     @Override
     public void suorita() {
-        sovellus.nollaa();
+        this.arvo = 0;
+        try {
+            this.arvo = Integer.parseInt(this.tuloskentta.getText());
+        } catch (Exception e) {
+            
+        }
+        this.sovellus.nollaa();
+        int laskunTulos = this.sovellus.tulos();
+        this.syotekentta.setText("");
+        this.tuloskentta.setText("" + laskunTulos);
     }
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.tuloskentta.setText("" + this.arvo);
     }
     
 }
