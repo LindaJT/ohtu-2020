@@ -6,6 +6,7 @@ import statistics.matcher.And;
 import statistics.matcher.HasAtLeast;
 import statistics.matcher.HasFewerThan;
 import statistics.matcher.Matcher;
+import statistics.matcher.Or;
 import statistics.matcher.PlaysIn;
 
 /**
@@ -36,6 +37,17 @@ public class QueryBuilder {
     
     public QueryBuilder hasFewerThan(int number, String command) {
         this.matcher = new And(new HasFewerThan(number, command), this.matcher);
+        return this;
+    }
+    
+    public QueryBuilder oneOf(Matcher... matcher) {
+        Matcher[] m = matcher;
+        Matcher[] newM = new Matcher[m.length + 1];
+        for (int i = 0; i < m.length; i ++) {
+            newM[i] = m[i];
+        }
+        newM[newM.length-1] = this.matcher;
+        this.matcher = new Or(newM);
         return this;
     }
     
