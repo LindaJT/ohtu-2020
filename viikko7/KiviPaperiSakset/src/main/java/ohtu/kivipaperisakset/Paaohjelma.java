@@ -1,6 +1,5 @@
 package ohtu.kivipaperisakset;
 
-import java.util.Scanner;
 import ohtu.kivipaperisakset.PeliTyyppi.HelppoTekoaly;
 import ohtu.kivipaperisakset.PeliTyyppi.PelaajaVsPelaaja;
 import ohtu.kivipaperisakset.PeliTyyppi.VaikeaTekoaly;
